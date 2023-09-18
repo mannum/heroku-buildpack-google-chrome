@@ -3,6 +3,9 @@
 This buildpack downloads and installs (headless) Google Chrome from your choice
 of release channels.
 
+## Superscript changes
+We've added an additional option `CHROME_VERSION`. This allows you to specify `CHROME_VERSION` and fix the version of Chrome it will download. This stops inadvertent upgrades to Chrome during deployment causing issues with differences between QA, stage, prod, etc...
+
 ## Channels
 
 You can choose your release channel by specifying `GOOGLE_CHROME_CHANNEL` as
