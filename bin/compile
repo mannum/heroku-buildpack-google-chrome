@@ -113,8 +113,6 @@ else
   error "CHROME_VERSION can not be empty"
 fi
 
-PACKAGES="$PACKAGES https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$chrome_version-1_amd64.deb"
-
 APT_CACHE_DIR="$CACHE_DIR/apt/cache"
 APT_STATE_DIR="$CACHE_DIR/apt/state"
 
@@ -145,6 +143,10 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
   topic "Installing $(basename $DEB)"
   dpkg -x $DEB $BUILD_DIR/.apt/
 done
+
+wget "$PACKAGES https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$chrome_version-1_amd64.deb"
+dpkg -x "google-chrome-stable_$chrome_version-1_amd64.deb" $BUILD_DIR/.apt/
+
 
 topic "Writing profile script"
 mkdir -p $BUILD_DIR/.profile.d
