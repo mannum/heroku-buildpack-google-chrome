@@ -145,9 +145,8 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
 done
 
 # This is admittedly pretty rubbish but alas, it's all we can do
-wget "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$chrome_version-1_amd64.deb"
+wget "https://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_$chrome_version-1_amd64.deb"
 dpkg -x "google-chrome-stable_$chrome_version-1_amd64.deb" $BUILD_DIR/.apt/
-
 
 topic "Writing profile script"
 mkdir -p $BUILD_DIR/.profile.d
